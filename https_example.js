@@ -1,17 +1,36 @@
 var https = require('https');
 //console.log('I did it!');
 
+// var options = {
+//   host: 'www.twitter.com',
+//   path: '/'
+// };
+
+//host a simple web server that
+//sends back an entire Monty Python script via an HTTP stream.
 var options = {
-  host: 'www.twitter.com',
-  path: '/'
+  host: 'stream-large-file.herokuapp.com',
+  path: '/give-me-stuff-now'
 };
 
 // called by https when the request is made.
 // HOWEVER,we need to provide a response argument to our callback function
-// in order to read the response. Let's do that ne
+// in order to read the response.
+
+// var callback = function(response) {
+//   console.log('In response handler callback!');
+//   console.log('Response: ', response);
+// }
+
+//modified callback function
 var callback = function(response) {
   console.log('In response handler callback!');
-  console.log('Response: ', response);
+
+//i dont want the response of "incoming message, but just the chunk"
+  response.on('data', function(chunk) {
+    console.log('[-- CHUNK OF LENGTH ' + chunk.length + ' --]');
+    console.log(chunk.toString());
+  });
 }
 
 console.log("I'm about to make the request!");
