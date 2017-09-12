@@ -1,17 +1,17 @@
 var https = require('https');
 //console.log('I did it!');
 
-// var options = {
-//   host: 'www.twitter.com',
-//   path: '/'
-// };
+var options = {
+  host: 'example.org',
+  path: '/'
+};
 
 //host a simple web server that
 //sends back an entire Monty Python script via an HTTP stream.
-var options = {
-  host: 'stream-large-file.herokuapp.com',
-  path: '/give-me-stuff-now'
-};
+// var options = {
+//   host: 'stream-large-file.herokuapp.com',
+//   path: '/give-me-stuff-now'
+// };
 
 // called by https when the request is made.
 // HOWEVER,we need to provide a response argument to our callback function
